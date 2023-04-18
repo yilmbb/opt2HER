@@ -6,7 +6,7 @@ public class Loondienst extends Werknemer{
         super(naam, uurloon, uren);
         this.btw = 0.21;
     }
-
+    @Override
     public double maandSalaris(){
         return (super.maandSalaris() * this.btw) + super.maandSalaris();
     }
