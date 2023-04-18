@@ -25,12 +25,12 @@ public class Menu {
                     hoofdMenu();
                     return;
                 case 2:
-                    if (Informatie.werknemers.size() != 0) {
+                    if (Werknemer.werknemers.size() != 0) {
                         Informatie.toonAlleNamen();
                         System.out.println("Kies werknemer");
                         int werknemerKeuze = scanner.nextInt();
 
-                        Werknemer werknemer = Informatie.werknemers.get(werknemerKeuze - 1);
+                        Werknemer werknemer = Werknemer.werknemers.get(werknemerKeuze - 1);
                         Informatie.toonWerknemerInfo(werknemer);
 
                     } else {

@@ -1,5 +1,7 @@
-public class Werknemer {
+import java.util.ArrayList;
 
+public class Werknemer {
+    static ArrayList<Werknemer> werknemers = new ArrayList<>();
     private String naam;
     private double uurloon;
     private int uren;
