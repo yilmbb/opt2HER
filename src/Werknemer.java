@@ -22,11 +22,6 @@ public class Werknemer {
         return uren;
     }
 
-    @Override
-    public String toString() {
-        return "Naam: " + naam + ", Salaris: " + uurloon + ", Uren: " + uren;
-    }
-
     public double maandSalaris() {
         return uren * uurloon;
     }
