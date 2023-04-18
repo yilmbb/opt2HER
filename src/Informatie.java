@@ -1,10 +1,11 @@
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 
 public class Informatie {
-
+    static ArrayList<Werknemer> werknemers = new ArrayList<>();
 
     public static void toonWerknemerInfo(Werknemer werknemer) {
 
@@ -33,9 +34,9 @@ public class Informatie {
 
     public static void toonAlleNamen() {
 
-        for (int i = 0; i < Menu.werknemers.size(); i++) {
+        for (int i = 0; i < werknemers.size(); i++) {
             int index = i + 1;
-            System.out.println(index + ". " + Menu.werknemers.get(i).getNaam());
+            System.out.println(index + ". " + werknemers.get(i).getNaam());
         }
         System.out.println("===================================================");
     }

@@ -33,13 +33,13 @@ public class Registreren {
             if (type == 1) {
                 werknemer = new Zzper(naam, uurloon, uren);
                 System.out.println("Werknemer " + werknemer.getNaam() + " Geregistreerd.");
-                Menu.werknemers.add(werknemer);
+                Informatie.werknemers.add(werknemer);
 
             }
             if (type == 2) {
                 werknemer = new Loondienst(naam, uurloon, uren);
                 System.out.println("Werknemer " + werknemer.getNaam() + " Geregistreerd.");
-                Menu.werknemers.add(werknemer);
+                Informatie.werknemers.add(werknemer);
             }
 
 

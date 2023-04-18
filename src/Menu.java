@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Menu {
-    static ArrayList<Werknemer> werknemers = new ArrayList<>();
+
 
     public static void hoofdMenu() {
         System.out.println("===================================================");
@@ -25,12 +25,12 @@ public class Menu {
                     hoofdMenu();
                     return;
                 case 2:
-                    if (werknemers.size() != 0) {
+                    if (Informatie.werknemers.size() != 0) {
                         Informatie.toonAlleNamen();
                         System.out.println("Kies werknemer");
                         int werknemerKeuze = scanner.nextInt();
 
-                        Werknemer werknemer = werknemers.get(werknemerKeuze - 1);
+                        Werknemer werknemer = Informatie.werknemers.get(werknemerKeuze - 1);
                         Informatie.toonWerknemerInfo(werknemer);
 
                     } else {
