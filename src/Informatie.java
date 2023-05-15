@@ -1,6 +1,5 @@
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 
@@ -26,17 +25,23 @@ public class Informatie {
         }
 
         if (werknemer.getTypeWerknemer().equals("Zzper")) {
-            System.out.printf("Salaris (ex. 21%% BTW): €%,.2f\n", werknemer.maandSalaris());
+            Zzper zzper = (Zzper) werknemer;
+            System.out.printf("Salaris (ex. 21%% BTW): €%,.2f\n", zzper.maandSalaris());
         }
+
+        if (werknemer.getDiploma() && werknemer.getWerkervaring() > 5) {
+            System.out.println("Bonus: 200 euro");
+
+        }
+
     }
 
 
     public static void toonAlleNamen() {
-
-        for (int i = 0; i < Werknemer.werknemers.size(); i++) {
-            int index = i + 1;
-            System.out.println(index + ". " + Werknemer.werknemers.get(i).getNaam());
-        }
+            for (int i = 0; i < Werknemer.werknemers.size(); i++) {
+                int index = i + 1;
+                System.out.println(index + ". " + Werknemer.werknemers.get(i).getNaam());
+            }
         System.out.println("===================================================");
     }
 

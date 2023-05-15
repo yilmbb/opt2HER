@@ -27,23 +27,35 @@ public class Registreren {
 
         System.out.print("Voer het gewerkte aantal uren in: ");
         int uren = scanner.nextInt();
-
         scanner.nextLine();
+
+        System.out.print("Voer het aantal jaar werkervaring in: ");
+        int werkervaring = scanner.nextInt();
+        scanner.nextLine();
+
+        System.out.print("Diploma ja/nee: ");
+        String diplomaKeuze = scanner.nextLine();
+        boolean diploma;
+        diploma = diplomaKeuze.equals("ja");
+
         if (type == 1 || type == 2) {
             if (type == 1) {
-                werknemer = new Zzper(naam, uurloon, uren);
+                werknemer = new Zzper(naam, uurloon, uren, diploma, werkervaring);
                 System.out.println("Werknemer " + werknemer.getNaam() + " Geregistreerd.");
                 Werknemer.werknemers.add(werknemer);
+                werknemer.setUren();
 
             }
             if (type == 2) {
-                werknemer = new Loondienst(naam, uurloon, uren);
+                werknemer = new Loondienst(naam, uurloon, uren, diploma, werkervaring);
                 System.out.println("Werknemer " + werknemer.getNaam() + " Geregistreerd.");
                 Werknemer.werknemers.add(werknemer);
+                werknemer.setUren();
+
             }
 
 
-        }else{
+        } else {
             System.out.println("Dit type bestaat niet, graag opnieuw invoeren.");
             voegNieuweWerknemerToe();
         }

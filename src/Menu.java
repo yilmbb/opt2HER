@@ -9,7 +9,6 @@ public class Menu {
         Scanner scanner = new Scanner(System.in);
         System.out.print("1) Werknemer registreren\n");
         System.out.print("2) Werknemer gegevens inzien\n");
-        System.out.print("3) Taal kiezen\n");
         System.out.print("9) Afsluiten\n");
 
 
@@ -48,12 +47,10 @@ public class Menu {
                     System.out.println("Ongeldige keuze. Maak een keuze uit de volgende opties:");
                     System.out.print("1) Informatie invullen.\n");
                     System.out.print("2) Werknemerinfo inzien. \n");
-                    System.out.print("3) Taal kiezen. \n");
                     System.out.print("9) Afsluiten\n");
                     System.out.print("Optie: ");
             }
         }
     }
-
 }
 
