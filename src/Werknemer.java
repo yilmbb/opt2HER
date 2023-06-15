@@ -7,13 +7,16 @@ public class Werknemer {
     private int uren;
     private boolean diploma;
     private int werkervaring;
+    private boolean beroepsCompetentiebewijs;
 
-    public Werknemer(String naam, double uurloon, int uren, boolean diploma, int werkevaring) {
+    public Werknemer(String naam, double uurloon, int uren, boolean diploma, int werkervaring, boolean beroepsCompetentiebewijs) {
         this.naam = naam;
         this.uurloon = uurloon;
         this.uren = uren;
         this.diploma = diploma;
-        this.werkervaring = werkevaring;
+        this.werkervaring = werkervaring;
+        this.beroepsCompetentiebewijs = beroepsCompetentiebewijs;
+        this.verhoogUurloon();
     }
 
     public String getNaam() {
@@ -28,36 +31,43 @@ public class Werknemer {
         return uren;
     }
 
+    public boolean getDiploma() {
+        return diploma;
+    }
+
+    public int getWerkervaring() {
+        return werkervaring;
+    }
+
+    public boolean getBeroepsCompetentiebewijs() {
+        return beroepsCompetentiebewijs;
+    }
+
     public double maandSalaris() {
         double salaris = uren * uurloon;
-
-        if (diploma && werkervaring > 5) {
-            salaris += 200.0;
+        if (getAlleBonussen()) {
+            salaris += 20.0;
         }
-
         return salaris;
     }
 
     public String getTypeWerknemer() {
-       return getClass().getName();
+        return getClass().getName();
     }
 
-    public void setUren(){
-        if (werkervaring >= 5.0) {
-            this.uurloon += 5.0;
-        }
+    public boolean getAlleBonussen() {
+        return diploma && werkervaring >= 5 && beroepsCompetentiebewijs;
+    }
 
+    private void verhoogUurloon() {
+        if (werkervaring >= 5) {
+            this.uurloon += 3.0;
+        }
         if (diploma) {
-            this.uurloon += 5.0;
+            this.uurloon += 2.0;
+        }
+        if (beroepsCompetentiebewijs) {
+            this.uurloon += 1.0;
         }
     }
-
-    public boolean getDiploma(){
-        return diploma;
-    }
-
-    public int getWerkervaring(){
-        return werkervaring;
-    }
-
 }

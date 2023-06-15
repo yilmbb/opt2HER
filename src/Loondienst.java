@@ -1,24 +1,16 @@
 public class Loondienst extends Werknemer{
+    private static final double BTW = 0.21;
 
-    private double btw;
-
-    public Loondienst(String naam, double uurloon, int uren, boolean diploma, int werkervaring) {
-        super(naam, uurloon, uren, diploma, werkervaring);
-        this.btw = 0.21;
-
-
+    public Loondienst(String naam, double uurloon, int uren, boolean diploma, int werkervaring, boolean beroepsCompetentiebewijs) {
+        super(naam, uurloon, uren, diploma, werkervaring, beroepsCompetentiebewijs);
     }
+
     @Override
-    public double maandSalaris(){
-        return (super.maandSalaris() * this.btw) + super.maandSalaris();
+    public double maandSalaris() {
+        return (super.maandSalaris() * BTW) + super.maandSalaris();
     }
 
-    public double getSalarisExBtw(){
-        return super.maandSalaris();
+    public double getBtwVerrekend() {
+        return BTW * super.maandSalaris();
     }
-
-    public double getBtwVerrekend(){
-        return this.btw * super.maandSalaris();
-    }
-
 }
