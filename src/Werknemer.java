@@ -33,10 +33,10 @@ public class Werknemer {
     }
 
     public String checkUurloon(int ervaring) {
-        if (werkervaring >= 10) {
+        if (10 <= werkervaring) {
             this.uurloon += 5.0;
             return "verhoging van 5 euro";
-        } else if (werkervaring >= 5) {
+        } else if (5 <= werkervaring) {
             this.uurloon += 3.0;
             return "verhoging van 3 euro";
         }
