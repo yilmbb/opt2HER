@@ -1,7 +1,6 @@
 import java.util.ArrayList;
 
 public class Werknemer {
-    static ArrayList<Werknemer> werknemers = new ArrayList<>();
     private String naam;
     private double uurloon;
     private int uren;
@@ -17,6 +16,42 @@ public class Werknemer {
         this.werkervaring = werkervaring;
         this.beroepsCompetentiebewijs = beroepsCompetentiebewijs;
         this.verhoogUurloon();
+    }
+
+    private void verhoogUurloon() {
+        if (werkervaring >= 10) {
+            this.uurloon += 5.0;
+        } else if (werkervaring >= 5) {
+            this.uurloon += 3.0;
+        }
+        if (diploma) {
+            this.uurloon += 2.0;
+        }
+        if (beroepsCompetentiebewijs) {
+            this.uurloon += 1.0;
+        }
+    }
+
+    public String checkUurloon(int ervaring) {
+        if (werkervaring >= 10) {
+            this.uurloon += 5.0;
+            return "verhoging van 5 euro";
+        } else if (werkervaring >= 5) {
+            this.uurloon += 3.0;
+            return "verhoging van 3 euro";
+        }
+        else{
+        return "je krijgt geen verhoging";
+        }
+    }
+
+
+    public double maandSalaris() {
+        double salaris = uren * uurloon;
+        if (getAlleBonussen()) {
+            salaris += 20.0;
+        }
+        return salaris;
     }
 
     public String getNaam() {
@@ -43,31 +78,11 @@ public class Werknemer {
         return beroepsCompetentiebewijs;
     }
 
-    public double maandSalaris() {
-        double salaris = uren * uurloon;
-        if (getAlleBonussen()) {
-            salaris += 20.0;
-        }
-        return salaris;
-    }
-
     public String getTypeWerknemer() {
         return getClass().getName();
     }
 
     public boolean getAlleBonussen() {
         return diploma && werkervaring >= 5 && beroepsCompetentiebewijs;
-    }
-
-    private void verhoogUurloon() {
-        if (werkervaring >= 5) {
-            this.uurloon += 3.0;
-        }
-        if (diploma) {
-            this.uurloon += 2.0;
-        }
-        if (beroepsCompetentiebewijs) {
-            this.uurloon += 1.0;
-        }
     }
 }

@@ -27,4 +27,5 @@ class WerknemerTest {
         Werknemer werknemer = new Werknemer("Emily Davis", 10.0, 40, true, 6, true);
         assertTrue(werknemer.getAlleBonussen());
     }
+
 }

@@ -4,8 +4,17 @@ import java.util.Calendar;
 import java.util.Date;
 
 public class Informatie {
+    private WerknemerBeheer werknemerBeheer;
 
-    public static void toonWerknemerInfo(Werknemer werknemer) {
+    public Informatie(WerknemerBeheer werknemerBeheer) {
+        this.werknemerBeheer = werknemerBeheer;
+    }
+
+
+    public void toonWerknemerInfo(int index) {
+        Werknemer werknemer = werknemerBeheer.getWerknemer(index);
+
+
 
         System.out.println("\n========= " + werknemer.getTypeWerknemer() + " overzicht =========");
 
@@ -27,7 +36,9 @@ public class Informatie {
 
         System.out.printf("Werkervaring: %d jaar\n", werknemer.getWerkervaring());
 
-        if (werknemer.getWerkervaring() >=5) {
+        if (werknemer.getWerkervaring() >= 10) {
+            System.out.println("Uurloon verhoogd voor meer dan 10 jaar werkervaring.");
+        } else if (werknemer.getWerkervaring() >= 5) {
             System.out.println("Uurloon verhoogd voor meer dan 5 jaar werkervaring.");
         }
 
@@ -54,10 +65,10 @@ public class Informatie {
         }
     }
 
-    public static void toonAlleNamen() {
-        for (int i = 0; i < Werknemer.werknemers.size(); i++) {
+    public void toonAlleNamen() {
+        for (int i = 0; i < werknemerBeheer.getAantalWerknemers(); i++) {
             int index = i + 1;
-            System.out.println(index + ". " + Werknemer.werknemers.get(i).getNaam());
+            System.out.println(index + ". " + werknemerBeheer.getWerknemer(i).getNaam());
         }
         System.out.println("===================================================");
     }
