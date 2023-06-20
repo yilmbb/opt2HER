@@ -23,14 +23,14 @@ public class Registreren {
         scanner.nextLine();
 
         System.out.print("Heeft diploma? (ja/nee): ");
-        boolean diploma = scanner.nextLine().toLowerCase().equals("ja");
+        boolean diploma = scanner.nextLine().equalsIgnoreCase("ja");
 
         System.out.print("Voer werkervaring in: ");
         int werkervaring = scanner.nextInt();
         scanner.nextLine();
 
         System.out.print("Voer beroepsCompetentiebewijs in (ja/nee): ");
-        boolean beroepsCompetentiebewijs = scanner.nextLine().toLowerCase().equals("ja");
+        boolean beroepsCompetentiebewijs = scanner.nextLine().equalsIgnoreCase("ja");
 
         System.out.print("Wat voor type werknemer? (1 = Zzper, 2 = Loondienst): ");
         int type = scanner.nextInt();

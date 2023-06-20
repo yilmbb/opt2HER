@@ -4,18 +4,19 @@ public class Menu {
     private Scanner scanner;
     private WerknemerBeheer werknemerBeheer;
     private Registreren registreren;
-    private Informatie informatie;
+    private InfoPrinter infoPrinter;
+    private NamenPrinter namenPrinter;
 
     public Menu() {
         this.scanner = new Scanner(System.in);
         this.werknemerBeheer = new WerknemerBeheer();
         this.registreren = new Registreren(werknemerBeheer);
-        this.informatie = new Informatie(werknemerBeheer);
+        this.infoPrinter = new InfoPrinter();
+        this.namenPrinter = new NamenPrinter(werknemerBeheer);
     }
 
     public void hoofdMenu() {
         System.out.println("===================================================");
-        Scanner scanner = new Scanner(System.in);
         System.out.print("1) Werknemer registreren\n");
         System.out.print("2) Werknemer gegevens inzien\n");
         System.out.print("9) Afsluiten\n");
@@ -32,10 +33,11 @@ public class Menu {
                     return;
                 case 2:
                     if (werknemerBeheer.getAantalWerknemers() != 0) {
-                        informatie.toonAlleNamen();
+                        namenPrinter.toonAlleNamen();
                         System.out.println("Kies werknemer");
                         int werknemerKeuze = scanner.nextInt();
-                        informatie.toonWerknemerInfo(werknemerKeuze - 1);
+                        infoPrinter.toonWerknemerInfo(werknemerBeheer.getWerknemer(werknemerKeuze - 1));
+
                     } else {
                         System.out.println("Er zijn geen werknemers");
                     }

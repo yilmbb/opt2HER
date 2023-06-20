@@ -3,19 +3,11 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
-public class Informatie {
-    private WerknemerBeheer werknemerBeheer;
+public class InfoPrinter {
+    private static final int vijfJaarErvaring = 5;
+    private static final int tienJaarErvaring = 10;
 
-    public Informatie(WerknemerBeheer werknemerBeheer) {
-        this.werknemerBeheer = werknemerBeheer;
-    }
-
-
-    public void toonWerknemerInfo(int index) {
-        Werknemer werknemer = werknemerBeheer.getWerknemer(index);
-
-
-
+    public void toonWerknemerInfo(Werknemer werknemer) {
         System.out.println("\n========= " + werknemer.getTypeWerknemer() + " overzicht =========");
 
         Date date = Calendar.getInstance().getTime();
@@ -36,9 +28,9 @@ public class Informatie {
 
         System.out.printf("Werkervaring: %d jaar\n", werknemer.getWerkervaring());
 
-        if (werknemer.getWerkervaring() >= 10) {
+        if (werknemer.getWerkervaring() >= tienJaarErvaring) {
             System.out.println("Uurloon verhoogd voor meer dan 10 jaar werkervaring.");
-        } else if (werknemer.getWerkervaring() >= 5) {
+        } else if (werknemer.getWerkervaring() >= vijfJaarErvaring) {
             System.out.println("Uurloon verhoogd voor meer dan 5 jaar werkervaring.");
         }
 
@@ -53,23 +45,15 @@ public class Informatie {
             System.out.println("Extra bonus voor het voldoen aan alle drie de voorwaarden: 20 euro");
         }
 
-        if (werknemer.getTypeWerknemer().equals("Loondienst")) {
+        if (werknemer instanceof Loondienst) {
             Loondienst loondienst = (Loondienst) werknemer;
             System.out.printf("BTW (21%%): €%,.2f \n", loondienst.getBtwVerrekend());
             System.out.printf("Salaris (incl. 21%% BTW): €%,.2f\n", loondienst.maandSalaris());
         }
 
-        if (werknemer.getTypeWerknemer().equals("Zzper")) {
+        if (werknemer instanceof Zzper) {
             Zzper zzper = (Zzper) werknemer;
             System.out.printf("Salaris (ex. 21%% BTW): €%,.2f\n", zzper.maandSalaris());
         }
-    }
-
-    public void toonAlleNamen() {
-        for (int i = 0; i < werknemerBeheer.getAantalWerknemers(); i++) {
-            int index = i + 1;
-            System.out.println(index + ". " + werknemerBeheer.getWerknemer(i).getNaam());
-        }
-        System.out.println("===================================================");
     }
 }
