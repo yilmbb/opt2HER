@@ -3,14 +3,14 @@ import java.util.Scanner;
 public class Menu {
     private Scanner scanner;
     private WerknemerBeheer werknemerBeheer;
-    private Registreren registreren;
+    private Registratie registratie;
     private InfoPrinter infoPrinter;
     private NamenPrinter namenPrinter;
 
     public Menu() {
         this.scanner = new Scanner(System.in);
         this.werknemerBeheer = new WerknemerBeheer();
-        this.registreren = new Registreren(werknemerBeheer);
+        this.registratie = new Registratie(werknemerBeheer);
         this.infoPrinter = new InfoPrinter();
         this.namenPrinter = new NamenPrinter(werknemerBeheer);
     }
@@ -28,7 +28,7 @@ public class Menu {
 
             switch (keuze) {
                 case 1:
-                    registreren.voegNieuweWerknemerToe();
+                    registratie.voegNieuweWerknemerToe();
                     hoofdMenu();
                     return;
                 case 2:
