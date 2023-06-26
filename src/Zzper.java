@@ -4,7 +4,18 @@ public class Zzper extends Werknemer{
     }
 
     @Override
-    public double maandSalaris() {
-        return super.maandSalaris();
+    void printType() {
+        System.out.println("Type: Zzper");
     }
+
+    @Override
+    void printFinancien() {
+        System.out.printf("Salaris (ex. 21%% BTW): €%,.2f\n", super.maandSalaris());
+    }
+
+    //niet nodig want Werknemer.maandsalaris kan ook direct aangeroepen worden op een instantie van Zzper
+//    @Override
+//    public double maandSalaris() {
+//        return super.maandSalaris();
+//    }
 }

@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 
-public class Werknemer {
+abstract class Werknemer {
     private String naam;
     private double uurloon;
     private int uren;
@@ -39,9 +39,8 @@ public class Werknemer {
         } else if (5 <= werkervaring) {
             this.uurloon += 3.0;
             return "verhoging van 3 euro";
-        }
-        else{
-        return "je krijgt geen verhoging";
+        } else {
+            return "je krijgt geen verhoging";
         }
     }
 
@@ -85,4 +84,15 @@ public class Werknemer {
     public boolean getAlleBonussen() {
         return diploma && werkervaring >= 5 && beroepsCompetentiebewijs;
     }
+
+
+    public void printInfo() {
+        //stap 1
+        printType();
+        //stap 2
+        printFinancien();
+    }
+
+    abstract void printType();
+    abstract void printFinancien();
 }

@@ -8,7 +8,7 @@ public class InfoPrinter {
     private static final int tienJaarErvaring = 10;
 
     public void toonWerknemerInfo(Werknemer werknemer) {
-        System.out.println("\n========= " + werknemer.getTypeWerknemer() + " overzicht =========");
+        System.out.println("\n========= Werknemer overzicht =========");
 
         Date date = Calendar.getInstance().getTime();
         DateFormat dateFormat = new SimpleDateFormat("dd MMMM yyyy 'om' HH:mm 'uur'");
@@ -45,15 +45,17 @@ public class InfoPrinter {
             System.out.println("Extra bonus voor het voldoen aan alle drie de voorwaarden: 20 euro");
         }
 
-        if (werknemer instanceof Loondienst) {
-            Loondienst loondienst = (Loondienst) werknemer;
-            System.out.printf("BTW (21%%): €%,.2f \n", loondienst.getBtwVerrekend());
-            System.out.printf("Salaris (incl. 21%% BTW): €%,.2f\n", loondienst.maandSalaris());
-        }
+        werknemer.printInfo();
 
-        if (werknemer instanceof Zzper) {
-            Zzper zzper = (Zzper) werknemer;
-            System.out.printf("Salaris (ex. 21%% BTW): €%,.2f\n", zzper.maandSalaris());
-        }
+//        if (werknemer instanceof Loondienst) {
+//            Loondienst loondienst = (Loondienst) werknemer;
+//            System.out.printf("BTW (21%%): €%,.2f \n", loondienst.getBtwVerrekend());
+//            System.out.printf("Salaris (incl. 21%% BTW): €%,.2f\n", loondienst.maandSalaris());
+//        }
+//
+//        if (werknemer instanceof Zzper) {
+//            Zzper zzper = (Zzper) werknemer;
+//            System.out.printf("Salaris (ex. 21%% BTW): €%,.2f\n", zzper.maandSalaris());
+//        }
     }
 }

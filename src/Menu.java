@@ -13,6 +13,8 @@ public class Menu {
         this.registratie = new Registratie(werknemerBeheer);
         this.infoPrinter = new InfoPrinter();
         this.namenPrinter = new NamenPrinter(werknemerBeheer);
+        //Dit subscribed een nieuwe werknemerlogger aan de instantie van werknemerbeheer
+        WerknemerLogger l = new WerknemerLogger(werknemerBeheer);
     }
 
     public void hoofdMenu() {

@@ -56,7 +56,7 @@ public class Registratie {
         while (true) {
             System.out.print(prompt);
             try {
-                input = Double.parseDouble(scanner.nextLine());
+                input = scanner.nextDouble();
                 break;
             } catch (NumberFormatException e) {
                 System.out.println("Ongeldige invoer. Voer een geldig numeriek bedrag in.");
@@ -70,7 +70,8 @@ public class Registratie {
         while (true) {
             System.out.print(prompt);
             try {
-                input = Integer.parseInt(scanner.nextLine());
+                input = scanner.nextInt();
+                scanner.nextLine();
                 break;
             } catch (NumberFormatException e) {
                 System.out.println("Ongeldige invoer. Voer een geldig geheel getal in.");

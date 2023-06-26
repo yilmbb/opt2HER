@@ -6,6 +6,18 @@ public class Loondienst extends Werknemer{
     }
 
     @Override
+    void printType() {
+        System.out.println("Type: Loondienst");
+    }
+
+    @Override
+    void printFinancien() {
+            System.out.printf("BTW (21%%): €%,.2f \n", getBtwVerrekend());
+            System.out.printf("Salaris (incl. 21%% BTW): €%,.2f\n", maandSalaris());
+    }
+
+
+    @Override
     public double maandSalaris() {
         return (super.maandSalaris() * BTW) + super.maandSalaris();
     }
