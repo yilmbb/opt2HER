@@ -77,10 +77,6 @@ abstract class Werknemer {
         return beroepsCompetentiebewijs;
     }
 
-    public String getTypeWerknemer() {
-        return getClass().getName();
-    }
-
     public boolean getAlleBonussen() {
         return diploma && werkervaring >= 5 && beroepsCompetentiebewijs;
     }

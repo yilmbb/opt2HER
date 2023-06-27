@@ -2,22 +2,22 @@ import java.util.Scanner;
 
 public class Menu {
     private Scanner scanner;
-    private WerknemerBeheer werknemerBeheer;
+    private WerknemerDatabase werknemerDatabase;
     private Registratie registratie;
     private InfoPrinter infoPrinter;
-    private NamenPrinter namenPrinter;
+    private WerknemerNamenPrinter werknemerNamenPrinter;
 
     public Menu() {
         this.scanner = new Scanner(System.in);
-        this.werknemerBeheer = new WerknemerBeheer();
-        this.registratie = new Registratie(werknemerBeheer);
+        this.werknemerDatabase = new WerknemerDatabase();
+        this.registratie = new Registratie(werknemerDatabase);
         this.infoPrinter = new InfoPrinter();
-        this.namenPrinter = new NamenPrinter(werknemerBeheer);
+        this.werknemerNamenPrinter = new WerknemerNamenPrinter(werknemerDatabase);
         //Dit subscribed een nieuwe werknemerlogger aan de instantie van werknemerbeheer
-        WerknemerLogger l = new WerknemerLogger(werknemerBeheer);
+        WerknemerLogger aantalWerknemers = new WerknemerLogger(werknemerDatabase);
     }
 
-    public void hoofdMenu() {
+    public void toonHoofdMenu() {
         System.out.println("===================================================");
         System.out.print("1) Werknemer registreren\n");
         System.out.print("2) Werknemer gegevens inzien\n");
@@ -31,19 +31,19 @@ public class Menu {
             switch (keuze) {
                 case 1:
                     registratie.voegNieuweWerknemerToe();
-                    hoofdMenu();
+                    toonHoofdMenu();
                     return;
                 case 2:
-                    if (werknemerBeheer.getAantalWerknemers() != 0) {
-                        namenPrinter.toonAlleNamen();
+                    if (werknemerDatabase.getAantalWerknemers() != 0) {
+                        werknemerNamenPrinter.toonAlleNamen();
                         System.out.println("Kies werknemer");
                         int werknemerKeuze = scanner.nextInt();
-                        infoPrinter.toonWerknemerInfo(werknemerBeheer.getWerknemer(werknemerKeuze - 1));
+                        infoPrinter.toonWerknemerInfo(werknemerDatabase.getWerknemer(werknemerKeuze - 1));
 
                     } else {
                         System.out.println("Er zijn geen werknemers");
                     }
-                    hoofdMenu();
+                    toonHoofdMenu();
                     return;
                 case 9:
                     System.out.println("Programma wordt afgesloten...");

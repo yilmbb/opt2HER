@@ -1,11 +1,11 @@
 import java.util.Scanner;
 
 public class Registratie {
-    private WerknemerBeheer werknemerBeheer;
+    private WerknemerDatabase werknemerDatabase;
     private Scanner scanner;
 
-    public Registratie(WerknemerBeheer werknemerBeheer) {
-        this.werknemerBeheer = werknemerBeheer;
+    public Registratie(WerknemerDatabase werknemerDatabase) {
+        this.werknemerDatabase = werknemerDatabase;
         this.scanner = new Scanner(System.in);
     }
 
@@ -23,7 +23,7 @@ public class Registratie {
         Werknemer werknemer = createWerknemer(type, naam, uurloon, uren, diploma, werkervaring, beroepsCompetentiebewijs);
 
         if (werknemer != null) {
-            werknemerBeheer.voegWerknemerToe(werknemer);
+            werknemerDatabase.voegWerknemerToe(werknemer);
         }
     }
 

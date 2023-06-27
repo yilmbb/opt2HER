@@ -1,10 +1,10 @@
 import java.util.ArrayList;
 
-public class WerknemerBeheer implements Observable {
+public class WerknemerDatabase implements Observable {
     private ArrayList<Werknemer> werknemers;
     private ArrayList<Observer> observers = new ArrayList<>();
 
-    public WerknemerBeheer() {
+    public WerknemerDatabase() {
         werknemers = new ArrayList<>();
     }
 
