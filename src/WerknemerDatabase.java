@@ -13,7 +13,7 @@ public class WerknemerDatabase implements Observable {
         notifyObservers();
     }
 
-    // -> voor elke observer in de lijst de update() functie aanroept
+    //  voor elke observer in de lijst de update() functie aanroept
     @Override
     public void notifyObservers(){
         for (Observer o : observers){

@@ -19,27 +19,11 @@ public class InfoPrinter {
         System.out.printf("Aantal gewerkte uren: %s\n", werknemer.getUren());
         System.out.printf("Uurloon: €%,.2f\n", werknemer.getUurloon());
 
-        if (werknemer.getDiploma()) {
-            System.out.println("Diploma: Ja");
-            System.out.println("Uurloon verhoogd voor het hebben van een diploma.");
-        } else {
-            System.out.println("Diploma: Nee");
-        }
+        printDiploma(werknemer);
 
-        System.out.printf("Werkervaring: %d jaar\n", werknemer.getWerkervaring());
+        printErvaring(werknemer);
 
-        if (werknemer.getWerkervaring() >= tienJaarErvaring) {
-            System.out.println("Uurloon verhoogd voor meer dan 10 jaar werkervaring.");
-        } else if (werknemer.getWerkervaring() >= vijfJaarErvaring) {
-            System.out.println("Uurloon verhoogd voor meer dan 5 jaar werkervaring.");
-        }
-
-        if (werknemer.getBeroepsCompetentiebewijs()) {
-            System.out.println("Beroepscompetentiebewijs: Ja");
-            System.out.println("Uurloon verhoogd voor het hebben van een beroepscompetentiebewijs.");
-        } else {
-            System.out.println("Beroepscompetentiebewijs: Nee");
-        }
+        printBewijs(werknemer);
 
         if (werknemer.getAlleBonussen()) {
             System.out.println("Extra bonus voor het voldoen aan alle drie de voorwaarden: 20 euro");
@@ -58,4 +42,33 @@ public class InfoPrinter {
 //            System.out.printf("Salaris (ex. 21%% BTW): €%,.2f\n", zzper.maandSalaris());
 //        }
     }
+
+    private static void printBewijs(Werknemer werknemer) {
+        if (werknemer.getBeroepsCompetentiebewijs()) {
+            System.out.println("Beroepscompetentiebewijs: Ja");
+            System.out.println("Uurloon verhoogd voor het hebben van een beroepscompetentiebewijs.");
+        } else {
+            System.out.println("Beroepscompetentiebewijs: Nee");
+        }
+    }
+
+    private static void printErvaring(Werknemer werknemer) {
+        System.out.printf("Werkervaring: %d jaar\n", werknemer.getWerkervaring());
+
+        if (werknemer.getWerkervaring() >= tienJaarErvaring) {
+            System.out.println("Uurloon verhoogd voor meer dan 10 jaar werkervaring.");
+        } else if (werknemer.getWerkervaring() >= vijfJaarErvaring) {
+            System.out.println("Uurloon verhoogd voor meer dan 5 jaar werkervaring.");
+        }
+    }
+
+    private void printDiploma(Werknemer werknemer) {
+        if (werknemer.getDiploma()) {
+            System.out.println("Diploma: Ja");
+            System.out.println("Uurloon verhoogd voor het hebben van een diploma.");
+        } else {
+            System.out.println("Diploma: Nee");
+        }
+    }
+
 }
