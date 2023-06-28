@@ -7,22 +7,27 @@ abstract class Werknemer {
     private boolean diploma;
     private int werkervaring;
     private boolean beroepsCompetentiebewijs;
+    private boolean nederlandse;
 
-    public Werknemer(String naam, double uurloon, int uren, boolean diploma, int werkervaring, boolean beroepsCompetentiebewijs) {
+    public Werknemer(String naam, double uurloon, int uren, boolean diploma, int werkervaring, boolean beroepsCompetentiebewijs, boolean nederlandse) {
         this.naam = naam;
         this.uurloon = uurloon;
         this.uren = uren;
         this.diploma = diploma;
         this.werkervaring = werkervaring;
         this.beroepsCompetentiebewijs = beroepsCompetentiebewijs;
+        this.nederlandse = nederlandse;
         this.verhoogUurloon();
     }
 
     private void verhoogUurloon() {
-        if (werkervaring >= 10) {
+        if (10 <=  werkervaring) {
             this.uurloon += 5.0;
-        } else if (werkervaring >= 5) {
+        } else if (5 <= werkervaring) {
             this.uurloon += 3.0;
+        }
+        if (nederlandse) {
+            this.uurloon += 4.0;
         }
         if (diploma) {
             this.uurloon += 2.0;
@@ -32,7 +37,7 @@ abstract class Werknemer {
         }
     }
 
-    public String checkUurloon(int ervaring) {
+    public String checkUurloon(int werkervaring) {
         if (10 <= werkervaring) {
             this.uurloon += 5.0;
             return "verhoging van 5 euro";
@@ -83,9 +88,7 @@ abstract class Werknemer {
 
 
     public void printInfo() {
-        //stap 1
         printType();
-        //stap 2
         printFinancien();
     }
 

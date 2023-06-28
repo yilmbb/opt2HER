@@ -1,8 +1,8 @@
 public class Loondienst extends Werknemer{
     private static final double BTW = 0.21;
 
-    public Loondienst(String naam, double uurloon, int uren, boolean diploma, int werkervaring, boolean beroepsCompetentiebewijs) {
-        super(naam, uurloon, uren, diploma, werkervaring, beroepsCompetentiebewijs);
+    public Loondienst(String naam, double uurloon, int uren, boolean diploma, int werkervaring, boolean beroepsCompetentiebewijs, boolean nederlandse) {
+        super(naam, uurloon, uren, diploma, werkervaring, beroepsCompetentiebewijs, nederlandse);
     }
 
     @Override

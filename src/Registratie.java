@@ -29,9 +29,9 @@ public class Registratie {
 
     private Werknemer createWerknemer(int type, String naam, double uurloon, int uren, boolean diploma, int werkervaring, boolean beroepsCompetentiebewijs) {
         if (type == 1) {
-            return new Zzper(naam, uurloon, uren, diploma, werkervaring, beroepsCompetentiebewijs);
+            return new Zzper(naam, uurloon, uren, diploma, werkervaring, beroepsCompetentiebewijs, false);
         } else if (type == 2) {
-            return new Loondienst(naam, uurloon, uren, diploma, werkervaring, beroepsCompetentiebewijs);
+            return new Loondienst(naam, uurloon, uren, diploma, werkervaring, beroepsCompetentiebewijs, false);
         } else {
             System.out.println("Ongeldig type werknemer. Probeer opnieuw.");
             return null;
