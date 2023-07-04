@@ -17,44 +17,91 @@ public class Menu {
         WerknemerLogger aantalWerknemers = new WerknemerLogger(werknemerDatabase);
     }
 
+//    public void toonHoofdMenu() {
+//        System.out.println("===================================================");
+//        System.out.print("1) Werknemer registreren\n");
+//        System.out.print("2) Werknemer gegevens inzien\n");
+//        System.out.print("9) Afsluiten\n");
+//
+//        while (true) {
+//            int keuze = scanner.nextInt();
+//
+//            System.out.println("===================================================");
+//
+//            switch (keuze) {
+//                case 1:
+//                    registratie.voegNieuweWerknemerToe();
+//                    toonHoofdMenu();
+//                    return;
+//                case 2:
+//                    if (werknemerDatabase.getAantalWerknemers() != 0) {
+//                        werknemerNamenPrinter.toonAlleNamen();
+//                        System.out.println("Kies werknemer");
+//                        int werknemerKeuze = scanner.nextInt();
+//                        infoPrinter.toonWerknemerInfo(werknemerDatabase.getWerknemer(werknemerKeuze - 1));
+//
+//                    } else {
+//                        System.out.println("Er zijn geen werknemers");
+//                    }
+//                    toonHoofdMenu();
+//                    return;
+//                case 9:
+//                    System.out.println("Programma wordt afgesloten...");
+//                    return;
+//                default:
+//                    System.out.println("Ongeldige keuze. Maak een keuze uit de volgende opties:");
+//                    System.out.print("1) Informatie invullen.\n");
+//                    System.out.print("2) Werknemerinfo inzien. \n");
+//                    System.out.print("9) Afsluiten\n");
+//                    System.out.print("Optie: ");
+//            }
+//        }
+//    }
+
     public void toonHoofdMenu() {
-        System.out.println("===================================================");
-        System.out.print("1) Werknemer registreren\n");
-        System.out.print("2) Werknemer gegevens inzien\n");
-        System.out.print("9) Afsluiten\n");
+        boolean blijfRunnen = true;
 
-        while (true) {
+        while (blijfRunnen) {
+            printMenu();
             int keuze = scanner.nextInt();
-
             System.out.println("===================================================");
 
             switch (keuze) {
                 case 1:
                     registratie.voegNieuweWerknemerToe();
-                    toonHoofdMenu();
-                    return;
+                    break;
                 case 2:
-                    if (werknemerDatabase.getAantalWerknemers() != 0) {
-                        werknemerNamenPrinter.toonAlleNamen();
-                        System.out.println("Kies werknemer");
-                        int werknemerKeuze = scanner.nextInt();
-                        infoPrinter.toonWerknemerInfo(werknemerDatabase.getWerknemer(werknemerKeuze - 1));
-
-                    } else {
-                        System.out.println("Er zijn geen werknemers");
-                    }
-                    toonHoofdMenu();
-                    return;
+                    toonWerknemerGegevens();
+                    break;
                 case 9:
                     System.out.println("Programma wordt afgesloten...");
-                    return;
+                    blijfRunnen = false;
+                    break;
                 default:
-                    System.out.println("Ongeldige keuze. Maak een keuze uit de volgende opties:");
-                    System.out.print("1) Informatie invullen.\n");
-                    System.out.print("2) Werknemerinfo inzien. \n");
-                    System.out.print("9) Afsluiten\n");
-                    System.out.print("Optie: ");
+                    printFout();
+                    break;
             }
         }
+    }
+
+    private void printMenu() {
+        System.out.println("===================================================");
+        System.out.print("1) Werknemer registreren\n");
+        System.out.print("2) Werknemer gegevens inzien\n");
+        System.out.print("9) Afsluiten\n");
+    }
+
+    private void toonWerknemerGegevens() {
+        if (werknemerDatabase.getAantalWerknemers() != 0) {
+            werknemerNamenPrinter.toonAlleNamen();
+            System.out.println("Kies werknemer");
+            int werknemerKeuze = scanner.nextInt();
+            infoPrinter.toonWerknemerInfo(werknemerDatabase.getWerknemer(werknemerKeuze - 1));
+        } else {
+            System.out.println("Er zijn geen werknemers");
+        }
+    }
+    private void printFout() {
+        System.out.println("Ongeldige keuze. Maak een keuze uit de volgende opties:");
     }
 }

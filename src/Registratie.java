@@ -10,6 +10,7 @@ public class Registratie {
     }
 
     public void voegNieuweWerknemerToe() {
+        System.out.println("Vul gegevens van nieuwe werknemer zorgvuldig in.");
         System.out.print("Voer naam in: ");
         String naam = getInputString();
 
