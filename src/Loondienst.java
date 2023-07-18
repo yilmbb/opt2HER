@@ -6,8 +6,8 @@ public class Loondienst extends Werknemer{
     }
 
     @Override
-    void printType() {
-        System.out.println("Type: Loondienst");
+    String returnType() {
+        return "Type: loondienst";
     }
 
     @Override

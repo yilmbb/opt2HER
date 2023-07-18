@@ -88,10 +88,10 @@ abstract class Werknemer {
 
 
     public void printInfo() {
-        printType();
+       System.out.println(returnType());;
         printFinancien();
     }
 
-    abstract void printType();
+    abstract String returnType();
     abstract void printFinancien();
 }

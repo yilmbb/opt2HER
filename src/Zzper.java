@@ -4,8 +4,8 @@ public class Zzper extends Werknemer{
     }
 
     @Override
-    void printType() {
-        System.out.println("Type: Zzper");
+    String returnType() {
+        return "zzper";
     }
 
     @Override
